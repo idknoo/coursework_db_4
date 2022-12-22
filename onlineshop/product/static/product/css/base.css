@@ -1,7 +1,15 @@
 
 body {
-    background-image: url('../img/background_wall.jpg');
+    background-image: url('../img/cat.jpg') ;
+    background-position: center center;
+  /* определяет размер изображения на странице */
     background-size: cover;
+  /* свойство устанавливает, будет ли повторяться изображение и каким образом */
+     background-repeat: no-repeat;
+  /* cвойство определяет, будет ли фоновое изображение прокручиваться
+  вместе с остальной частью страницы или будет фиксированным */
+    background-attachment: fixed;
+    font-family: 'Roboto Mono', monospace;
 }
 
 .main-container {
@@ -9,9 +17,12 @@ body {
 }
 
 .navbar {
-    background-color: rgb(143, 177, 112);
-    box-shadow: 0 1px 10px rgb(4, 52, 4);
+    background-color: rgb(177, 162, 150);
+    box-shadow: 0 1px 10px rgb(93, 92, 97);
+    margin-left: 10px;
+    margin-right: 10px;
 }
+
 
 .right-items-in-nav > .container {
     display: flex;
@@ -19,9 +30,23 @@ body {
 }
 
 button {
-    color: #344029;
+    color: #210434;
+}
+.btn-success {
+    color: aliceblue;
+    background-color: rgba(255, 255, 255, 0.31);
+    border: white;
+    box-shadow: none;
+}
+.btn-success:hover {
+    background-color: rgba(126, 133, 157, 0.47);
 }
 
 .form-control {
     background-color: #EFF8EAFC
+}
+
+a {
+    color: rgb(117, 105, 99);
+    text-decoration: underline;
 }

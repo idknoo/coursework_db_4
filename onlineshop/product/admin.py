@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Animal, Category, Location, Health_description
+from .models import Product, Category
 
 
-@admin.register(Animal)
+@admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     # list_display = ['name', 'category', 'stock', 'percent', 'initial_price', 'final_price', ]
     # list_editable = ['stock', ]
@@ -13,13 +13,6 @@ class ProductAdmin(admin.ModelAdmin):
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['category_name', 'parent_category', ]
 
-@admin.register(Location)
-class LocationsAdmin(admin.ModelAdmin):
-    pass
-
-@admin.register(Health_description)
-class Health_descriptionAdmin(admin.ModelAdmin):
-    pass
 
 # @admin.register(SubCategory)
 # class SubCategoryAdmin(admin.ModelAdmin):

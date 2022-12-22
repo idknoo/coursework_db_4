@@ -20,12 +20,12 @@
 {% block right_items_in_nav %}
     <a href={% url 'order:cart' %}>
         <span class="cart-nav">
-            <img src="{% static 'product/img/cart.jpg' %}" style="max-height: 2.5rem" alt="cart-icon">
+            <img src="{% static 'product/img/cart.png' %}" style="max-height: 2.5rem" alt="cart-icon">
         </span>
     </a>
     <div class="search-bar">
         <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-success my-2 my-sm-0" type="submit" id="search-btn">Search</button>
+        <button class="btn btn-success" type="submit" id="search-btn">Search</button>
     </div>
 {% endblock %}
 

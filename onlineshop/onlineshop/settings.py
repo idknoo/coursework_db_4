@@ -69,11 +69,12 @@ WSGI_APPLICATION = 'onlineshop.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'DISABLE_SERVER_SIDE_CURSORS': True,
         'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': '1',
+        'USER': 'admin',
+        'PASSWORD': 'admin',
         'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'PORT': '5432'
     }
 }
 

@@ -4,8 +4,8 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
 from customer.forms import EditProfileForm
-from customer.models import Customer, Passport
-from product.models import Animal
+from customer.models import Customer
+from product.models import Product
 
 
 # just render the related page

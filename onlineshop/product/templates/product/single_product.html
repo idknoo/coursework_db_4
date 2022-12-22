@@ -23,23 +23,23 @@
                 <thead>
                 <tr>
                     <th scope="col"></th>
-                    <th scope="col">Animal name</th>
-                    <th scope="col">Specie</th>
-                    <th scope="col">Age</th>
-                    <th scope="col">Gender</th>
-                    <th scope="col">Health</th>
+                    <th scope="col">name</th>
+                    <th scope="col">stock</th>
+                    <th scope="col">price</th>
+                    <th scope="col">quantity</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
                     <th scope="row"><img src="/media/{{ product.photo }}" alt="{{ product.photo }}"
                                          style="max-height: 150px"></th>
-                    <td>{{ product.animal_name }}</td>
-                    <td>{{ product.specie }}</td>
-                    <td>{{ product.age }}</td>
-                    <td>{{ product.gender }}</td>
-                    <td>{{ product.health.health_level }}</td>
+                    <td>{{ product.product_name }}</td>
+                    <td>{{ product.stock }}</td>
 
+                    <td id="price" value="{{ product.initial_price }}">{{ product.initial_price }}</td>
+                    <td>
+                        <input oninput="CalculatePrice()" name="qty" id="qty" type="number" value="1">
+                    </td>
                 </tr>
                 </tbody>
 
@@ -55,18 +55,18 @@
 {% endblock %}
 
 {% block js %}
-<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
-<!--    <script>-->
-<!--        function CalculatePrice() {-->
-<!--            console.log({{ product.initial_price }})-->
-<!--            let qty = $('#qty').val()-->
-<!--            if (qty > {{ product.stock }}) {-->
-<!--                alert('This amount is more than inventory!')-->
-<!--                qty = 1-->
-<!--            }-->
-<!--            let total = qty * {{ product.initial_price }}-->
-<!--                $('#price').empty().append(total)-->
-<!--        }-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        function CalculatePrice() {
+            console.log({{ product.initial_price }})
+            let qty = $('#qty').val()
+            if (qty > {{ product.stock }}) {
+                alert('This amount is more than inventory!')
+                qty = 1
+            }
+            let total = qty * {{ product.initial_price }}
+                $('#price').empty().append(total)
+        }
 
-<!--    </script>-->
+    </script>
 {% endblock %}

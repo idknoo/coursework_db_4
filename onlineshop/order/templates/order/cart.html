@@ -21,11 +21,10 @@
             <thead>
             <tr>
                 <th scope="col"></th>
-                <th scope="col">Animal name</th>
-                <th scope="col">Specie</th>
-                <th scope="col">Age</th>
-                <th scope="col">Gender</th>
-                <th scope="col">Health</th>
+                <th scope="col">name</th>
+                <th scope="col">stock</th>
+                <th scope="col">price</th>
+                <th scope="col">quantity</th>
             </tr>
             </thead>
             {% for product, qty in products.items %}
@@ -33,11 +32,14 @@
                 <tr>
                     <th scope="row"><img src="/media/{{ product.photo }}" alt="{{ product.photo }}"
                                          style="max-height: 150px"></th>
-                    <td>{{ product.animal_name }}</td>
-                    <td>{{ product.specie }}</td>
-                    <td>{{ product.age }}</td>
-                    <td>{{ product.gender }}</td>
-                    <td>{{ product.health }}</td>
+                    <td>{{ product.product_name }}</td>
+                    <td>{{ product.stock }}</td>
+                    <td id="price"
+                        value="{% widthratio qty 1 product.initial_price %}">{% widthratio qty 1 product.initial_price %}</td>
+                    <td id="qty" value="{{ qty }}">
+                        {{ qty }}
+                        <a class="btn btn-danger" href="{% url 'order:delete_from_cart' product.id %}">remove</a>
+                    </td>
 
                 </tr>
                 </tbody>
