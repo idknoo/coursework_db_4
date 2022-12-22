@@ -1,0 +1,67 @@
+{% extends 'product/base.html' %}
+{% load static %}
+
+{% block title %}HOME | OnlineShop{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static '/product/css/home.css' %}">
+{% endblock %}
+
+{% block left_items_in_nav %}
+    {% if not request.user.is_authenticated %}
+        <a class="btn btn-success" href="{% url 'customer:signup' %}">Signup</a>
+        <a class="btn btn-success" href="{% url 'customer:login' %}">Login</a>
+    {% else %}
+        <a class="btn btn-success" href="{% url 'customer:profile' %}">Profile</a>
+        <a class="btn btn-success" href="{% url 'customer:logout' %}">Logout</a>
+    {% endif %}
+{% endblock %}
+
+{% block right_items_in_nav %}
+    <a href={% url 'order:cart' %}>
+        <span class="cart-nav">
+            <img src="{% static 'product/img/cart.jpg' %}" style="max-height: 2.5rem" alt="cart-icon">
+        </span>
+    </a>
+    <div class="search-bar">
+        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-success my-2 my-sm-0" type="submit" id="search-btn">Search</button>
+    </div>
+{% endblock %}
+
+{% block extra_header %}
+    <section class="section category">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Categories: </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto"></ul>
+            </div>
+        </nav>
+    </section>
+{% endblock %}
+
+{% block main %}
+    <section>
+        <div class="container product-container">
+            <div class="card-group">
+                <div class="row"></div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{#{% block main_right %}#}
+{#    <div class="container right-component">#}
+{##}
+{#    </div>#}
+{#{% endblock %}#}
+
+{% block js %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static 'product/js/categories_nav.js' %}"></script>
+    <script src={% static 'product/js/products.js' %}></script>
+{% endblock %}

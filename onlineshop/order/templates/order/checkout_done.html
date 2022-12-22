@@ -1,0 +1,11 @@
+{% extends 'product/base.html' %}
+
+{% block title %}DONE! | OnlineShop{% endblock %}
+
+{% block main %}
+    {% for message in messages %}
+        <div class="alert alert-success" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endblock %}

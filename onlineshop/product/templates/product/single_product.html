@@ -1,0 +1,72 @@
+{% extends 'product/base.html' %}
+{% load static %}
+
+{% block title %}
+    product | Onlineshop
+{% endblock %}
+
+{% block left_items_in_nav %}
+    {% if not request.user.is_authenticated %}
+        <a class="btn btn-success" href="{% url 'customer:signup' %}">Signup</a>
+        <a class="btn btn-success" href="{% url 'customer:login' %}">Login</a>
+    {% else %}
+        <a class="btn btn-success" href="{% url 'customer:profile' %}">Profile</a>
+        <a class="btn btn-success" href="{% url 'customer:logout' %}">Logout</a>
+    {% endif %}
+{% endblock %}
+
+{% block main %}
+    <div class="card-body col-12" style="margin-top: 10px">
+        <form method="POST" action="{% url 'order:add_to_cart' %}">
+
+            <table class="table table-secondary">
+                <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">name</th>
+                    <th scope="col">stock</th>
+                    <th scope="col">price</th>
+                    <th scope="col">quantity</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row"><img src="/media/{{ product.photo }}" alt="{{ product.photo }}"
+                                         style="max-height: 150px"></th>
+                    <td>{{ product.product_name }}</td>
+                    <td>{{ product.stock }}</td>
+
+                    <td id="price" value="{{ product.initial_price }}">{{ product.initial_price }}</td>
+                    <td>
+                        <input oninput="CalculatePrice()" name="qty" id="qty" type="number" value="1">
+                    </td>
+                </tr>
+                </tbody>
+
+            </table>
+            <div class="col-2">
+                <input type="hidden" name="product_id" value={{ product.id }}>
+                <button type="submit" class="btn btn-success">add to cart</button>
+            </div>
+        </form>
+    </div>
+
+
+{% endblock %}
+
+{% block js %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        function CalculatePrice() {
+            console.log({{ product.initial_price }})
+            let qty = $('#qty').val()
+            if (qty > {{ product.stock }}) {
+                alert('This amount is more than inventory!')
+                qty = 1
+            }
+            let total = qty * {{ product.initial_price }}
+                $('#price').empty().append(total)
+        }
+
+    </script>
+{% endblock %}

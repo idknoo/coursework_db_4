@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/product/css/base.css' %}">
+
+    {% block style %}{% endblock %}
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+<div class="main-container">
+    <div class="header">
+
+        <nav class="navbar navbar-fixed-top">
+
+            <div class="left_items_in_nav">
+                <div class="container">
+                    <a href="{% url 'product:home' %}" type="button" class="btn navs-button btn-success">Home</a>
+                    {% block left_items_in_nav %}{% endblock %}
+                </div>
+            </div>
+
+            <div class="right-items-in-nav">
+                <div class="container">
+                    {% block right_items_in_nav %}{% endblock %}
+                </div>
+            </div>
+        </nav>
+        {% block extra_header %}{% endblock %}
+    </div>
+
+    <div class="container outer-main">
+        <div class="row main-component">
+            {% block main %}{% endblock %}
+        </div>
+    </div>
+
+    <div class="container-fluid footer" id="footer">
+        <p>This is footer</p>
+        {% block extra_footer %}{% endblock %}
+    </div>
+</div>
+
+{% block js %}{% endblock %}
+</body>
+</html>

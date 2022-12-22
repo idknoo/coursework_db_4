@@ -1,0 +1,58 @@
+{% extends 'product/base.html' %}
+{% load static %}
+
+{% block title %}
+    Profile | Onlineshop
+{% endblock %}
+
+{% block style %}
+    <style>
+        #button {
+            background-color: rgba(106, 201, 17, 0.87);
+        }
+    </style>
+{% endblock %}
+
+{% block left_items_in_nav %}
+    <a class="btn btn-success" href="{% url 'customer:logout' %}">Logout</a>
+{% endblock %}
+
+{% block right_items_in_nav %}
+    <a href={% url 'order:add_to_cart' %}>
+        <span class="cart-nav">
+            <img src="{% static 'product/img/cart.jpg' %}" style="max-height: 2.5rem" alt="cart-icon">
+        </span>
+    </a>
+{% endblock %}
+
+{% block main %}
+    {% if request.user.is_authenticated %}
+        <div class="card col-12" style="margin-top: 10px;">
+            <div class="card-body">
+                <p class="card-text">username: {{ request.user.username }}</p>
+                {% if not request.user.first_name %}
+                    <p class="card-text">first name: Not set</p>
+                {% else %}
+                    <p class="card-text">first name: {{ request.user.first_name }}</p>
+                {% endif %}
+                {% if not request.user.last_name %}
+                    <p class="card-text">last name: Not set</p>
+                {% else %}
+                    <p class="card-text">last name: {{ request.user.last_name }}</p>
+                {% endif %}
+                {% if not address %}
+                    <p class="card-text">address: Not set</p>
+                {% else %}
+                    <p class="card-text">address: {{ address }}</p>
+                {% endif %}
+                <p class="card-text">email: {{ request.user.email }}</p>
+                <p class="card-text">phone: {{ phone }}</p>
+            </div>
+        </div>
+        <div class="col-1">
+            <a class="btn" id="button" href="{% url "customer:profile_edit" %}">edit</a>
+        </div>
+    {% endif %}
+
+{% endblock %}
+

@@ -1,0 +1,65 @@
+{% extends 'product/base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'customer/css/signup.css' %}">
+{% endblock %}
+
+{% block title %}
+Signup | Onlineshop
+{% endblock %}
+
+{% block main %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto" id="card-container">
+            <div class="card border-0 shadow rounded-3 my-5">
+                <div class="card-body p-4 p-sm-5" id="card-body">
+                    <h5 class="card-title text-center mb-5 fw-light fs-5"><b>Sign up</b></h5>
+                    <form id="form">
+                        {% csrf_token %}
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="username" id="username"
+                                   placeholder="Username" required>
+
+                            <label for="username">Username</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" name="email" id="email" placeholder="email">
+
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="phone" id="phone" placeholder="phone">
+
+                            <label for="phone">Phone</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" name="password" id="password"
+                                   placeholder="Password" required>
+                            <label for="password">Password</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" name="password2" id="password2"
+                                   placeholder="Password Confirmation" required>
+                            <label for="password2">Password Confirmation</label>
+                        </div>
+                        <div class="d-grid">
+                            <button class="btn btn-primary btn-login text-uppercase fw-bold" id="button" type="button">
+                                Sign Up
+                            </button>
+                        </div>
+                        <hr class="my-4">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{% static 'customer/js/register.js' %}"></script>
+{% endblock %}

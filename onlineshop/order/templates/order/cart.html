@@ -1,0 +1,64 @@
+{% extends 'product/base.html' %}
+{% load static %}
+
+{% block title %}
+    Cart | Onlineshop
+{% endblock %}
+
+{% block left_items_in_nav %}
+    {% if not request.user.is_authenticated %}
+        <a class="btn btn-success" href="{% url 'customer:signup' %}">Signup</a>
+        <a class="btn btn-success" href="{% url 'customer:login' %}">Login</a>
+    {% else %}
+        <a class="btn btn-success" href="{% url 'customer:profile' %}">Profile</a>
+        <a class="btn btn-success" href="{% url 'customer:logout' %}">Logout</a>
+    {% endif %}
+{% endblock %}
+
+{% block main %}
+    <div class="card-body col-12" style="margin-top: 10px">
+        <table class="table table-secondary">
+            <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">name</th>
+                <th scope="col">stock</th>
+                <th scope="col">price</th>
+                <th scope="col">quantity</th>
+            </tr>
+            </thead>
+            {% for product, qty in products.items %}
+                <tbody>
+                <tr>
+                    <th scope="row"><img src="/media/{{ product.photo }}" alt="{{ product.photo }}"
+                                         style="max-height: 150px"></th>
+                    <td>{{ product.product_name }}</td>
+                    <td>{{ product.stock }}</td>
+                    <td id="price"
+                        value="{% widthratio qty 1 product.initial_price %}">{% widthratio qty 1 product.initial_price %}</td>
+                    <td id="qty" value="{{ qty }}">
+                        {{ qty }}
+                        <a class="btn btn-danger" href="{% url 'order:delete_from_cart' product.id %}">remove</a>
+                    </td>
+
+                </tr>
+                </tbody>
+            {% endfor %}
+        </table>
+        <div class="container row">
+            <div class="col-2 ckeckout-btn">
+                {% if request.user.is_authenticated %}
+                    <a class="btn btn-success" href="{% url 'order:checkout' %}">checkout</a>
+                {% else %}
+                    <a class="btn btn-success" href="{% url 'customer:login' %}">checkout</a>
+                {% endif %}
+            </div>
+            <div class="col-8">
+
+            </div>
+            <div class="col-2">
+                <span class="span" style="background-color: rgb(175,89,89); padding: 10px">total: {{ total }}</span>
+            </div>
+        </div>
+    </div>
+{% endblock %}
