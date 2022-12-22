@@ -29,8 +29,9 @@ body {
     justify-content: start;
 }
 
-button {
-    color: #210434;
+#button {
+    color: #ffffff;
+    background-color: #988a7f;
 }
 .btn-success {
     color: aliceblue;

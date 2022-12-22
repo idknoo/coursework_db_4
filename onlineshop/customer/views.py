@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
-from customer.forms import EditProfileForm
+from customer.forms import EditProfileForm, EditProfileFormPassport, EditProfileUserForm
 from customer.models import Customer, Passport
 from product.models import Animal
 
@@ -42,17 +42,36 @@ def profile(request):
 @login_required
 def profile_edit(request):
     if request.method == 'POST':
-        form = EditProfileForm(request.POST, instance=request.user)
-        if form.is_valid():
+        a = request.session.get('customer')
+        formUser = EditProfileUserForm(request.POST, instance=request.user)
+        form = EditProfileForm(request.POST, instance=a)
+        if form.is_valid() and formUser.is_valid():
             form.save()
+            formUser.save()
             return redirect('customer:profile')
     else:
-        form = EditProfileForm(instance=request.user)
+        form = EditProfileForm()
+
 
     context = {
         'form': form
     }
     return render(request, 'customer/profile_edit.html', context)
+
+@login_required
+def profile_edit_passport(request):
+    if request.method == 'POST':
+        form = EditProfileFormPassport(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect('customer:profile')
+    else:
+        form = EditProfileFormPassport(instance=request.user)
+
+    context = {
+        'form': form
+    }
+    return render(request, 'customer/profile_edit_passport.html', context)
 
 
 def auth_logout(request):

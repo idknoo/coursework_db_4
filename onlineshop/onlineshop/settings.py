@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'product',
     'order',
     'core',
+    'robot',
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

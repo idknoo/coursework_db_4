@@ -19,13 +19,11 @@ $.ajax({
                                          <form method="POST" action="/order/single_product/">
                                              <img class="card-img-top" src=${obj.photo} alt="Card image cap">
                                              <div class="card-body">
-                                                 <h5 class="card-title">${obj.product_name}</h5>
-                                                 <h5 class="card-title card-category">${obj.category}</h5>
-                                                 <p class="card-text">initial price: ${obj.initial_price}</p>
-                                                 <p class="card-text">discount: ${obj.percent}</p>
-                                                 <p class="card-text">final price: ${obj.final_price}</p>
-                                                 <p class="card-text">stock: ${obj.stock}</p>
-                                                 <p class="card-text">description: ${obj.description}</p>
+                                                 <h5 class="card-title">${obj.animal_name}</h5>
+                                                 <p class="card-text">Specie: ${obj.specie}</p>
+                                                 <p class="card-text">Age: ${obj.age}</p>
+                                                 <p class="card-text">Gender: ${obj.gender}</p>
+                                                 <p class="card-text">Health: ${obj.health}</p>
                                                  <input value="${obj.id}">
                                                      <button type="submit" class="btn btn-primary">
                                                         view
@@ -44,13 +42,11 @@ $.ajax({
                          <form method="POST" action="/order/single_product/">
                          <img class="card-img-top" src=${obj.photo} alt="Card image cap">
                          <div class="card-body">
-                             <h5 class="card-title">${obj.product_name}</h5>
-                             <h5 class="card-title card-category">${obj.category}</h5>
-                             <p class="card-text">initial price: ${obj.initial_price}</p>
-                             <p class="card-text">discount: ${obj.percent}</p>
-                             <p class="card-text">final price: ${obj.final_price}</p>
-                             <p class="card-text">stock: ${obj.stock}</p>
-                             <p class="card-text">description: ${obj.description}</p>
+                             <h5 class="card-title">${obj.animal_name}</h5>
+                             <p class="card-text">Specie: ${obj.specie}</p>
+                             <p class="card-text">Age: ${obj.age}</p>
+                             <p class="card-text">Gender: ${obj.gender}</p>
+                             <p class="card-text">Health: ${obj.health}</p>
                              <input value="${obj.id}" name="id" hidden>
                             <button type="submit" class="btn btn-primary">
                                                         view
