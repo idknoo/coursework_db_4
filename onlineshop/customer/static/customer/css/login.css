@@ -1,8 +1,7 @@
 #card-body {
-    background-color: rgba(123, 135, 156, 0.44);
+    background-color: rgba(139, 156, 123, 0.44);
 }
 
 #submit {
-    background-color: rgb(177, 162, 150);
-    border-color: #5d5c61;
+    background-color: rgba(106, 201, 17, 0.87);
 }

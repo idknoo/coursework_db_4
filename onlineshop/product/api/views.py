@@ -4,18 +4,18 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from product.api.serializer import ProductsListSerializer, CategoryListSerializer
-from product.models import Product, Category
+from product.models import Animal, Category
 
 
 class ProductAPIView(APIView):
     serializer = ProductsListSerializer
 
     def get_queryset(self):
-        return Product.objects.all()
+        return Animal.objects.all()
 
     def get(self, request, category=None):
         if category:
-            queryset = get_list_or_404(Product, category__category_name=category)
+            queryset = get_list_or_404(Animal, category__category_name=category)
         else:
             queryset = self.get_queryset()
 
