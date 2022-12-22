@@ -11,7 +11,6 @@ class OrderItem(models.Model):
 class Order(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     order_item = models.ManyToManyField(OrderItem)
-    total_price = models.PositiveIntegerField(default=0)
 
     AVAILABLE = 'AVAILABLE'
     UNAVAILABLE = 'UNAVAILABLE'
@@ -23,3 +22,7 @@ class Order(models.Model):
 
     def __str__(self):
         return str(self.id)
+
+# class WORK_SCHEDULE(models.Model):
+#     ORDER_ID = models.ForeignKey(ORDER, null=False, on_delete=models.CASCADE, primary_key=True)
+#     TIME = models.DateTimeField()
