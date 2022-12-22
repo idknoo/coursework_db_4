@@ -31,15 +31,19 @@
             <div class="card-body">
                 <p class="card-text">username: {{ request.user.username }}</p>
                 {% if not request.user.first_name %}
-                    <p class="card-text">first name: Not set</p>
+                    <p class="card-text">First name: Not set</p>
                 {% else %}
-                    <p class="card-text">first name: {{ request.user.first_name }}</p>
+                    <p class="card-text">First name: {{ request.user.first_name }}</p>
                 {% endif %}
                 {% if not request.user.last_name %}
-                    <p class="card-text">last name: Not set</p>
+                    <p class="card-text">Surname: Not set</p>
                 {% else %}
-                    <p class="card-text">last name: {{ request.user.last_name }}</p>
+                    <p class="card-text">Surname: {{ request.user.last_name }}</p>
                 {% endif %}
+                <p class="card-text">PATRONYMIC: {{ request.customer.patronymic }}</p>
+                <p class="card-text">DATE_BIRTHDAY: {{ request.customer.date_birthday }}</p>
+                <p class="card-text">GENDER: {{ request.customer.gender }}</p>
+                <p class="card-text">GENDER: {{ request.customer.gender }}</p>
                 {% if not address %}
                     <p class="card-text">address: Not set</p>
                 {% else %}
@@ -47,6 +51,11 @@
                 {% endif %}
                 <p class="card-text">email: {{ request.user.email }}</p>
                 <p class="card-text">phone: {{ phone }}</p>
+                <p>Passport information:</p>
+                <p class="card-text">SERIES_PASSPORT: {{ request.passport.series_passport }}</p>
+                <p class="card-text">number_passport: {{ request.passport.number_passport }}</p>
+                <p class="card-text">date_issue: {{ request.passport.date_issue }}</p>
+                <p class="card-text">passport_issue: {{ request.passport.passport_issue }}</p>
             </div>
         </div>
         <div class="col-1">
