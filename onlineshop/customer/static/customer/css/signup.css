@@ -1,11 +1,11 @@
 #card-body {
-    background-color: rgba(139, 156, 123, 0.44);
+    background-color: rgba(255, 255, 255, 0.6);
 }
 
 #button {
-    background-color: rgba(106, 201, 17, 0.87);
+    background-color: rgb(152, 138, 127);
 }
 
 .form-control {
-        background-color: rgba(239, 248, 234, 0.99);
+        background-color: rgba(176, 163, 150, 0.11);
 }

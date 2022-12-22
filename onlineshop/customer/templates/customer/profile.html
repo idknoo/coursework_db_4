@@ -5,14 +5,16 @@
     Profile | Onlineshop
 {% endblock %}
 
-{% block style %}
-<style>
-    #button {
-        background-color: rgba(106, 201, 17, 0.87);
-        color: aliceblue;
-    }
-</style>
-{% endblock %}
+    {% block style %}
+    <style>
+        #button {
+            background-color: rgb(152, 138, 127);
+            color: aliceblue;
+            margin-top: 10px;
+            position: relative;
+        }
+    </style>
+    {% endblock %}
 
 {% block left_items_in_nav %}
     <a class="btn btn-success" href="{% url 'customer:logout' %}">Logout</a>
@@ -36,19 +38,26 @@
                 {% else %}
                     <p class="card-text">First name: {{ request.user.first_name }}</p>
                 {% endif %}
+
+                {% if not request.user.patronymic %}
+                    <p class="card-text">patronymic: Not set</p>
+                {% else %}
+                    <p class="card-text">patronymic: {{ request.user.patronymic }}</p>
+                {% endif %}
+
+
+
                 {% if not request.user.last_name %}
                     <p class="card-text">Surname: Not set</p>
                 {% else %}
                     <p class="card-text">Surname: {{ request.user.last_name }}</p>
                 {% endif %}
-                <p class="card-text">PATRONYMIC: {{ request.customer.patronymic }}</p>
                 <p class="card-text">DATE_BIRTHDAY: {{ request.customer.date_birthday }}</p>
-                <p class="card-text">GENDER: {{ request.customer.gender }}</p>
                 <p class="card-text">GENDER: {{ request.customer.gender }}</p>
                 {% if not address %}
                     <p class="card-text">address: Not set</p>
                 {% else %}
-                    <p class="card-text">address: {{ address }}</p>
+                    <p class="card-text">address: {{ request.user.address }}</p>
                 {% endif %}
                 <p class="card-text">email: {{ request.user.email }}</p>
                 <p class="card-text">phone: {{ phone }}</p>
@@ -61,6 +70,7 @@
         </div>
         <div class="col-1">
             <a class="btn" id="button" href="{% url "customer:profile_edit" %}">edit</a>
+            <a class="btn" id="button" href="{% url "customer:profile_edit_passport" %}">edit passport</a>
         </div>
     {% endif %}
 
