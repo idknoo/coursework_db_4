@@ -1,4 +1,4 @@
-# online-shop
+# Курсовая работа 
 
 ## How run the project?
 

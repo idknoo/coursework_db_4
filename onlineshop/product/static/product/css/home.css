@@ -1,3 +1,8 @@
+*, ::after, ::before {
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-right: 10px;
+}
 
 .product-container {
     margin-top: 12px;
@@ -9,13 +14,33 @@
 }
 
 #search-btn {
+    color: aliceblue;
+    background-color: rgba(255, 255, 255, 0.31);
     margin-right: 10px;
     margin-left: 5px;
+    border: white;
+    box-shadow: none;
+}
+
+#search-btn:hover {
+    background-color: rgba(126, 133, 157, 0.47);
+}
+
+.btn-success {
+    color: aliceblue;
+    background-color: rgba(255, 255, 255, 0.31);
+    border: white;
+    box-shadow: none;
+
+}
+.btn:hover{
+    background-color: rgba(126, 133, 157, 0.47);
 }
 
 .form-control {
-    background-color: #EFF8EAFC
+    background-color: rgba(239, 248, 234, 0.89)
 }
+
 
 .product-container {
     display: flex;
@@ -24,11 +49,44 @@
 }
 
 .card {
-    background-color: #EFF8EAFC;
+    background-color: rgba(255, 255, 255, 0.6);
+    margin: 1.5px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    max-width: 300px;
+    word-wrap: break-word;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
 }
 
 .right-component {
     height: 100%;
-    background-image: url("../img/cat.jpeg");
+    background-image: url('../img/cat.jpg') ;
+    background-position: center center;
+  /* определяет размер изображения на странице */
     background-size: cover;
+  /* свойство устанавливает, будет ли повторяться изображение и каким образом */
+    background-repeat: no-repeat;
+  /* cвойство определяет, будет ли фоновое изображение прокручиваться
+  вместе с остальной частью страницы или будет фиксированным */
+    background-attachment: fixed;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.card-text {
+    font-family: 'Roboto Mono', monospace;
+}
+
+.btn-primary{
+    color: #fff;
+    background-color: #988a7f;
+    border-color: rgba(123, 131, 156, 0.47);
+}
+
+.btn-primary:hover{
+    background-color: rgba(123, 131, 156, 0.47);
+    border-color: #5d5c61;
 }
