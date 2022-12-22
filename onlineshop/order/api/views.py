@@ -5,7 +5,7 @@ from django.shortcuts import get_list_or_404
 from customer.models import Customer
 from order.api.serializer import OrderslistSerializer
 from order.models import Order
-from product.models import Product
+from product.models import Animal
 
 
 class OrderViewSet(viewsets.ViewSet):
@@ -15,7 +15,7 @@ class OrderViewSet(viewsets.ViewSet):
         return Response(serializer.data)
 
     def product(self, request, pk):
-        queryset = get_list_or_404(Product, id=pk)
+        queryset = get_list_or_404(Animal, id=pk)
         serializer = OrderslistSerializer(queryset, many=True, context={'request': request})
         return Response(serializer.data)
 
