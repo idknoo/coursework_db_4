@@ -6,11 +6,12 @@
 {% endblock %}
 
 {% block style %}
-    <style>
-        #button {
-            background-color: rgba(106, 201, 17, 0.87);
-        }
-    </style>
+<style>
+    #button {
+        background-color: rgba(106, 201, 17, 0.87);
+        color: aliceblue;
+    }
+</style>
 {% endblock %}
 
 {% block left_items_in_nav %}
@@ -20,7 +21,7 @@
 {% block right_items_in_nav %}
     <a href={% url 'order:add_to_cart' %}>
         <span class="cart-nav">
-            <img src="{% static 'product/img/cart.jpg' %}" style="max-height: 2.5rem" alt="cart-icon">
+            <img src="{% static 'product/img/cart.png' %}" style="max-height: 2.5rem" alt="cart-icon">
         </span>
     </a>
 {% endblock %}
