@@ -2,7 +2,7 @@ from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect, get_list_or_404
 from django.contrib import messages
 
-from product.models import Category, Animal
+from product.models import Animal
 
 
 def home(request):

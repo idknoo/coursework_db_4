@@ -3,8 +3,8 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from product.api.serializer import ProductsListSerializer, CategoryListSerializer
-from product.models import Animal, Category
+from product.api.serializer import ProductsListSerializer
+from product.models import Animal
 
 
 class ProductAPIView(APIView):
@@ -22,10 +22,3 @@ class ProductAPIView(APIView):
         serializer = ProductsListSerializer(queryset, context={'request': request}, many=True)
         return Response(serializer.data)
 
-
-class CategoryAPIView(APIView):
-    def get(self, request):
-        print('resid be view')
-        queryset = Category.objects.all()
-        serializer = CategoryListSerializer(queryset, context={'request': request}, many=True)
-        return Response(serializer.data)

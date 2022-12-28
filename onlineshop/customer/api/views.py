@@ -70,7 +70,7 @@ def forgetpassword(request):
                 customer.save()
                 send_mail('your new password',
                           f'your reset password is {new_password}',
-                          'security@onlineshop.com',
+                          'security@animalshelter.com',
                           [his_email],
                           fail_silently=False, )
             else:

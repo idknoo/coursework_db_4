@@ -1,5 +1,5 @@
 from django.contrib import admin
-from order.models import Order, OrderItem
+from order.models import Order, OrderItem, Work_shedule
 
 
 @admin.register(Order)
@@ -13,3 +13,8 @@ class OrderAdmin(admin.ModelAdmin):
 @admin.register(OrderItem)
 class OrderItemAdmin(admin.ModelAdmin):
     pass
+
+@admin.register(Work_shedule)
+class Work_sheduleAdmin(admin.ModelAdmin):
+    pass
+

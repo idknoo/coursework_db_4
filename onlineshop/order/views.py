@@ -64,7 +64,6 @@ def delete_from_cart(request, product_id):
 def checkout(request):
     if request.user.is_authenticated:
         order_item_list = list()
-        total_price = 0
         the_cart = request.session.get('cart')
 
         if the_cart:
@@ -78,7 +77,6 @@ def checkout(request):
             print(customer)
             order = Order.objects.create(
                 customer=customer,
-                total_price=total_price,
             )
 
             order.order_item.add(*order_item_list)
