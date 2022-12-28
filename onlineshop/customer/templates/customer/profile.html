@@ -2,19 +2,24 @@
 {% load static %}
 
 {% block title %}
-    Profile | Onlineshop
+    Profile | Animal Shelter
 {% endblock %}
 
-    {% block style %}
-    <style>
-        #button {
-            background-color: rgb(152, 138, 127);
-            color: aliceblue;
-            margin-top: 10px;
-            position: relative;
-        }
-    </style>
-    {% endblock %}
+{% block style %}
+<style>
+    .col-1 {
+        display: contents;
+        justify-content: space-around;
+        margin-left: 30px;
+    }
+    #button {
+        background-color: rgb(152, 138, 127);
+        color: aliceblue;
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+</style>
+{% endblock %}
 
 {% block left_items_in_nav %}
     <a class="btn btn-success" href="{% url 'customer:logout' %}">Logout</a>
@@ -39,11 +44,11 @@
                     <p class="card-text">First name: {{ request.user.first_name }}</p>
                 {% endif %}
 
-                {% if not request.user.patronymic %}
-                    <p class="card-text">patronymic: Not set</p>
-                {% else %}
-                    <p class="card-text">patronymic: {{ request.user.patronymic }}</p>
-                {% endif %}
+<!--                {% if not request.user.patronymic %}-->
+<!--                    <p class="card-text">patronymic: Not set</p>-->
+<!--                {% else %}-->
+<!--                    <p class="card-text">patronymic: {{ request.user.patronymic }}</p>-->
+<!--                {% endif %}-->
 
 
 
@@ -52,25 +57,25 @@
                 {% else %}
                     <p class="card-text">Surname: {{ request.user.last_name }}</p>
                 {% endif %}
-                <p class="card-text">DATE_BIRTHDAY: {{ request.customer.date_birthday }}</p>
-                <p class="card-text">GENDER: {{ request.customer.gender }}</p>
-                {% if not address %}
-                    <p class="card-text">address: Not set</p>
-                {% else %}
-                    <p class="card-text">address: {{ request.user.address }}</p>
-                {% endif %}
+<!--                <p class="card-text">DATE_BIRTHDAY: {{ request.customer.date_birthday }}</p>-->
+<!--                <p class="card-text">GENDER: {{ request.customer.gender }}</p>-->
+<!--                {% if not address %}-->
+<!--                    <p class="card-text">address: Not set</p>-->
+<!--                {% else %}-->
+<!--                    <p class="card-text">address: {{ request.user.address }}</p>-->
+<!--                {% endif %}-->
                 <p class="card-text">email: {{ request.user.email }}</p>
                 <p class="card-text">phone: {{ phone }}</p>
-                <p>Passport information:</p>
-                <p class="card-text">SERIES_PASSPORT: {{ request.passport.series_passport }}</p>
-                <p class="card-text">number_passport: {{ request.passport.number_passport }}</p>
-                <p class="card-text">date_issue: {{ request.passport.date_issue }}</p>
-                <p class="card-text">passport_issue: {{ request.passport.passport_issue }}</p>
+<!--                <p>Passport information:</p>-->
+<!--                <p class="card-text">SERIES_PASSPORT: {{ request.passport.series_passport }}</p>-->
+<!--                <p class="card-text">number_passport: {{ request.passport.number_passport }}</p>-->
+<!--                <p class="card-text">date_issue: {{ request.passport.date_issue }}</p>-->
+<!--                <p class="card-text">passport_issue: {{ request.passport.passport_issue }}</p>-->
             </div>
         </div>
         <div class="col-1">
             <a class="btn" id="button" href="{% url "customer:profile_edit" %}">edit</a>
-            <a class="btn" id="button" href="{% url "customer:profile_edit_passport" %}">edit passport</a>
+<!--            <a class="btn" id="button" href="{% url "customer:profile_edit_passport" %}">edit passport</a>-->
         </div>
     {% endif %}
 

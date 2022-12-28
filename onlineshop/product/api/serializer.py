@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from product.models import Animal, Category
+from product.models import Animal
 
 
 class ProductsListSerializer(serializers.ModelSerializer):
@@ -15,8 +15,3 @@ class ProductsListSerializer(serializers.ModelSerializer):
         model = Animal
         fields = '__all__'
 
-
-class CategoryListSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Category
-        fields = '__all__'
