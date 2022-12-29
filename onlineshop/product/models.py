@@ -19,7 +19,7 @@ class Animal(models.Model):
     location = models.ForeignKey(Location, null=False, on_delete=models.CASCADE)
     appearance_date = models.DateTimeField(null=False)
     photo = models.ImageField(upload_to='product_image', null=True, blank=True)
-
+    is_given = models.BooleanField(blank=True, null=True, default=False)
     # def __str__(self):
     #     return self.createdAt
     def __str__(self):
