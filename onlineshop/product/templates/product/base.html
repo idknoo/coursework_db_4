@@ -38,13 +38,16 @@
     </div>
 
     <div class="container outer-main">
-        <div class="row main-component">
+        <div class="cont row main-component">
             {% block main %}{% endblock %}
+        </div>
+        <div class="cont2 row main-component">
+            {% block status %}{% endblock %}
         </div>
     </div>
 
     <div class="container-fluid footer" id="footer">
-        <p>This is footer</p>
+        <p></p>
         {% block extra_footer %}{% endblock %}
     </div>
 </div>
