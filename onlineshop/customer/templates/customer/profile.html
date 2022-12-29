@@ -81,3 +81,18 @@
 
 {% endblock %}
 
+{% block status %}
+    {% if request.user.is_authenticated %}
+        <div class="card col-12" style="margin-top: 10px;">
+            <div class="card-body">
+                <p class="card-text">number: {{ request.Customer.objects }}
+                </p>
+                <p class="card-text">email: {{ request.user.email }}</p>
+                <p class="card-text">phone: {{ phone }}</p>
+
+            </div>
+        </div>
+    {% endif %}
+
+{% endblock %}
+

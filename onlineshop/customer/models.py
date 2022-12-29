@@ -41,3 +41,4 @@ class Coupon(models.Model):
 
 class Cart(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='customer')
+

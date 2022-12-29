@@ -16,6 +16,7 @@ body {
     margin: 10px auto auto;
 }
 
+
 .navbar {
     background-color: rgb(177, 162, 150);
     box-shadow: 0 1px 10px rgb(93, 92, 97);
@@ -23,17 +24,14 @@ body {
     margin-right: 10px;
 }
 
-a{
-    text-align: center;
-}
+
 .right-items-in-nav > .container {
     display: flex;
     justify-content: start;
 }
 
-#button {
-    color: #ffffff;
-    background-color: #988a7f;
+button {
+    color: #210434;
 }
 .btn-success {
     color: aliceblue;
@@ -53,3 +51,18 @@ a {
     color: rgb(117, 105, 99);
     text-decoration: underline;
 }
+
+/*.cont {*/
+/*    float: left;*/
+/*    display: block;*/
+/*    width: 49%;*/
+/*    border: 1px solid #ff0000;*/
+/*    margin: 2px;*/
+/*}*/
+/*.cont2 {*/
+/*    float: left;*/
+/*    display: block;*/
+/*    width: 49%;*/
+/*    border: 1px solid #ff0000;*/
+/*    margin: 2px;*/
+/*}*/
