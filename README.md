@@ -7,7 +7,6 @@ and to continue ...
 
 ##### Clone the repository :
 ```bash
-$ git clone https://github.com/mmdtoorani/online-shop.git
 $ cd online-shop
 ```
 ##### Create a virtualenv and activate it:
