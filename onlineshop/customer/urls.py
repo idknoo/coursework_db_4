@@ -12,4 +12,7 @@ urlpatterns = [
     path('profile/edit', views.profile_edit, name='profile_edit'),
     path('profile/edit_passport', views.profile_edit_passport, name='profile_edit_passport'),
     path('logout/', views.auth_logout, name='logout'),
+
+    path('fav/<int:id>/', views.booked_add, name='booked_add'),
+    path('profile/orderhistory/', views.booked_animals_list, name='orderhistory'),
 ]
