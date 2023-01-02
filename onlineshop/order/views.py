@@ -11,7 +11,6 @@ from product.models import Animal
 def cart(request):
     if request.session.get('cart'):
         the_cart = request.session.get('cart')
-        total = 0
         product_list = dict()
 
         for i in the_cart:
@@ -19,8 +18,7 @@ def cart(request):
             product_list[product] = the_cart[i]
 
         context = {
-            'products': product_list,
-            'total': total,
+            'products': product_list
         }
         return render(request, 'order/cart.html', context)
 
@@ -65,8 +63,8 @@ def checkout(request):
     if request.user.is_authenticated:
         order_item_list = list()
         the_cart = request.session.get('cart')
-
         if the_cart:
+            my_test = the_cart
             for product_id in the_cart:
                 selected_product = Animal.objects.filter(pk=product_id).first()
 

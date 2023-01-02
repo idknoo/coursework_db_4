@@ -38,8 +38,7 @@
                     <td>{{ product.specie }}</td>
                     <td>{{ product.age }}</td>
                     <td>{{ product.gender }}</td>
-                    <td>{{ product.health.health_level }}</td>
-
+                    <td>{{ product.health }}</td>
                 </tr>
                 </tbody>
 
@@ -53,21 +52,3 @@
 
 
 {% endblock %}
-
-{% block js %}
-<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
-<!--    <script>-->
-<!--        function CalculatePrice() {-->
-<!--            console.log({{ product.initial_price }})-->
-<!--            let qty = $('#qty').val()-->
-<!--            if (qty > {{ product.stock }}) {-->
-<!--                alert('This amount is more than inventory!')-->
-<!--                qty = 1-->
-<!--            }-->
-<!--            let total = qty * {{ product.initial_price }}-->
-<!--                $('#price').empty().append(total)-->
-<!--        }-->
-
-<!--    </script>-->
-{% endblock %}
-

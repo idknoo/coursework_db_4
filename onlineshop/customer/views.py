@@ -7,6 +7,7 @@ from customer.forms import EditProfileForm
 from customer.models import Customer, Passport
 from product.models import Animal
 
+from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect
 
 # just render the related page
 def login(request):
@@ -73,3 +74,22 @@ def profile_edit_passport(request):
 def auth_logout(request):
     logout(request)
     return render(request, 'product/home.html', {'request': request})
+
+
+
+@ login_required
+def booked_animals_list(request):
+    new = Animal.newmanager.filter(booked_by_who=request.user)
+    return render(request,
+                  'customer/orderhistory.html',
+                  {'new': new})
+
+
+@ login_required
+def booked_add(request, id):
+    animal = get_object_or_404(Animal, id=id)
+    if animal.favourites.filter(id=request.user.id).exists():
+        animal.favourites.remove(request.user)
+    else:
+        animal.favourites.add(request.user)
+    return HttpResponseRedirect(request.META['HTTP_REFERER'])
