@@ -80,6 +80,7 @@ def auth_logout(request):
 @ login_required
 def booked_animals_list(request):
     new = Animal.newmanager.filter(booked_by_who=request.user)
+    print(new)
     return render(request,
                   'customer/orderhistory.html',
                   {'new': new})
@@ -88,8 +89,8 @@ def booked_animals_list(request):
 @ login_required
 def booked_add(request, id):
     animal = get_object_or_404(Animal, id=id)
-    if animal.favourites.filter(id=request.user.id).exists():
-        animal.favourites.remove(request.user)
-    else:
-        animal.favourites.add(request.user)
+    # if animal.favourites.filter(id=request.user.id).exists():
+    #     animal.favourites.remove(request.user)
+    # else:
+    animal.favourites.add(request.user)
     return HttpResponseRedirect(request.META['HTTP_REFERER'])

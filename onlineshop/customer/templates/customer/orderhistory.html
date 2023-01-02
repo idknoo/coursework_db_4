@@ -1,37 +1,52 @@
 {% extends 'product/base.html' %}
-{% block title %}Users Favourties{% endblock %}
-{% block content %}
-{% include "../base/nav-main.html" %}
-<div class="container">
-    <section class="jumbotron text-center bg-white">
-        <div class="container">
-            <h1>Users saved favourite posts</h1>
-            <p class="lead text-muted">Here you can remove or view the favourites posts you have added</p>
-        </div>
-    </section>
-    <div>
-        <div class="row">
-            {% for post in new %}
-            <div class="col-md-4">
-                <a class="text-dark" href="{{post.get_absolute_url}}">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top" src="{{post.image.url}}" alt="{{ post.title }}">
-                        <div class="card-body">
-                            <h2 style="font-size:18px;font-weight:bold">{{post.title|truncatechars:50}}</h2>
-                            <p class="card-text">{{post.excerpt|truncatechars:50}}</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted">9 mins</small>
-                                <div id="favourite-section"><a href="{% url 'accounts:favourite_add' post.id %}"
-                                                               class="btn btn-outline-primary">Remove</a></div>
-                            </div>
+{% load static %}
 
-                        </div>
-                    </div>
-                </a>
-            </div>
+{% block title %}
+product | Animal Shelter
+{% endblock %}
+
+{% block left_items_in_nav %}
+{% if not request.user.is_authenticated %}
+<a class="btn btn-success" href="{% url 'customer:signup' %}">Signup</a>
+<a class="btn btn-success" href="{% url 'customer:login' %}">Login</a>
+{% else %}
+<a class="btn btn-success" href="{% url 'customer:profile' %}">Profile</a>
+<a class="btn btn-success" href="{% url 'customer:logout' %}">Logout</a>
+{% endif %}
+{% endblock %}
+
+{% block main %}
+<div class="card-body col-12" style="margin-top: 10px">
+
+        <table class="table table-secondary">
+            <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Animal name</th>
+                <th scope="col">Specie</th>
+                <th scope="col">Age</th>
+                <th scope="col">Status</th>
+<!--                <th scope="col">Health</th>-->
+            </tr>
+            </thead>
+            {% for product in new %}
+            <tbody>
+            <tr>
+                <th scope="row"><img src="/media/{{ product.photo }}" alt="{{ product.photo }}"
+                                     style="max-height: 150px"></th>
+                <td>{{ product.animal_name }}</td>
+                <td>{{ product.specie }}</td>
+                <td>{{ product.age }}</td>
+                <td>{{ product.is_given }}</td>
+
+                <!--                <td>{{ product.gender }}</td>-->
+<!--                <td>{{ product.health }}</td>-->
+            </tr>
+            </tbody>
             {% endfor %}
-        </div>
-    </div>
+
+        </table>
 </div>
-{% include "base/footer.html" %}
+
+
 {% endblock %}

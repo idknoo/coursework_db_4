@@ -63,13 +63,15 @@ def checkout(request):
     if request.user.is_authenticated:
         order_item_list = list()
         the_cart = request.session.get('cart')
+        # animal = get_object_or_404(Animal, id=id)
         if the_cart:
-            my_test = the_cart
             for product_id in the_cart:
                 selected_product = Animal.objects.filter(pk=product_id).first()
-
+                # animal.booked_by_who.add(request.user)
                 order_item = OrderItem.objects.create(product=selected_product)
                 order_item_list.append(order_item)
+
+                selected_product.booked_by_who.add(request.user)
 
             customer = Customer.objects.get(id=request.user.id)
             print(customer)
