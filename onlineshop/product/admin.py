@@ -4,9 +4,13 @@ from .models import Animal, Location, Health_description
 
 @admin.register(Animal)
 class ProductAdmin(admin.ModelAdmin):
-    # list_display = ['name', 'category', 'stock', 'percent', 'initial_price', 'final_price', ]
-    # list_editable = ['stock', ]
-    pass
+    list_display = ['animal_name', 'specie', 'health', 'located_in', 'age']
+
+    def located_in(self, obj):
+        return obj.location.location_name
+
+    def health_description(self, obj):
+        return obj.health_description.health_description
 
 @admin.register(Location)
 class LocationsAdmin(admin.ModelAdmin):
@@ -16,6 +20,6 @@ class LocationsAdmin(admin.ModelAdmin):
 class Health_descriptionAdmin(admin.ModelAdmin):
     pass
 
-# @admin.register(SubCategory)
-# class SubCategoryAdmin(admin.ModelAdmin):
-#     pass
+admin.site.unregister(Health_description)
+admin.site.unregister(Location)
+

@@ -1,0 +1,86 @@
+{% extends 'admin/base.html' %} {% block extrahead %}{{ block.super }}
+<style>
+  :root {
+    --primary: #5d5c61;
+    --secondary: #988a7f;
+    --accent: #3d3c3c;
+    --primary-fg: #fff;
+    --header-color: #302f33;
+    --darkened-bg: rgba(152, 138, 127, 0.16);
+    --font-family-monospace: 'Roboto Mono', monospace;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-size: 0.875rem;
+    font-family: 'Roboto Mono', monospace;
+    color: var(--body-fg);
+    background: var(--body-bg);
+}
+a:link, a:visited {
+  /*color: var(--link-fg);*/
+    color: #736559;
+  text-decoration: none;
+  transition: color 0.15s, background 0.15s;
+}
+.module caption,
+.inline-group h2 {
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+  td, th {
+    font-size: 0.9rem;
+    line-height: 1rem;
+    border-bottom: 1px solid var(--hairline-color);
+    vertical-align: top;
+    padding: 8px;
+}
+
+  h1,h2,h3,h4,h5 {
+    font-weight: normal;
+}
+
+h1 {
+    margin: 0 0 20px;
+    font-weight: 300;
+    font-size: 1.5rem;
+    color: var(--body-quiet-color);
+}
+
+h2 {
+    font-size: 1.2rem;
+    margin: 1em 0 .5em 0;
+}
+
+h2.subhead {
+    font-weight: normal;
+    margin-top: 0;
+}
+
+h3 {
+    font-size: 0.9rem;
+    margin: .8em 0 .3em 0;
+    color: var(--body-quiet-color);
+    font-weight: bold;
+}
+
+h4 {
+    font-size: 0.8rem;
+    margin: 1em 0 .8em 0;
+    padding-bottom: 3px;
+}
+
+h5 {
+    font-size: 0.7rem;
+    margin: 1.5em 0 .5em 0;
+    color: var(--body-quiet-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+p, ol, ul, dl {
+    margin: .3em 0 .8em 0;
+}
+</style>
+{% endblock %}

@@ -22,6 +22,7 @@ class Order(models.Model):
     )
     status = models.CharField(choices=status_choices, max_length=100, default=IN_WORK)
 
+
     def __str__(self):
         return str(self.id)
 
