@@ -37,10 +37,11 @@ product | Animal Shelter
                 <td>{{ product.animal_name }}</td>
                 <td>{{ product.specie }}</td>
                 <td>{{ product.age }}</td>
-                <td>{{ product.is_given }}</td>
-
-                <!--                <td>{{ product.gender }}</td>-->
-<!--                <td>{{ product.health }}</td>-->
+                {% if product.is_given == True %}
+                <td>Accepted</td>
+                {% else %}
+                <td>Rejected</td>
+                {% endif %}
             </tr>
             </tbody>
             {% endfor %}
