@@ -75,25 +75,25 @@
         </div>
         <div class="col-1">
             <a class="btn" id="button" href="{% url "customer:profile_edit" %}">edit</a>
-            <a class="btn" id="button" href="{% url "customer:orderhistory" %}">Booked animals</a>
+            <a class="btn" id="button" href="{% url "customer:orderhistory" %}">Order history</a>
             <!--            <a class="btn" id="button" href="{% url "customer:profile_edit_passport" %}">edit passport</a>-->
         </div>
     {% endif %}
 
 {% endblock %}
 
-{% block status %}
-    {% if request.user.is_authenticated %}
-        <div class="card col-12" style="margin-top: 10px;">
-            <div class="card-body">
-                <p class="card-text">number: {{ request.Customer.objects }}
-                </p>
-                <p class="card-text">email: {{ request.user.email }}</p>
-                <p class="card-text">phone: {{ phone }}</p>
+<!--{% block status %}-->
+<!--    {% if request.user.is_authenticated %}-->
+<!--        <div class="card col-12" style="margin-top: 10px;">-->
+<!--            <div class="card-body">-->
+<!--                <p class="card-text">number: {{ request.Customer.objects }}-->
+<!--                </p>-->
+<!--                <p class="card-text">email: {{ request.user.email }}</p>-->
+<!--                <p class="card-text">phone: {{ phone }}</p>-->
 
-            </div>
-        </div>
-    {% endif %}
+<!--            </div>-->
+<!--        </div>-->
+<!--    {% endif %}-->
 
-{% endblock %}
+<!--{% endblock %}-->
 

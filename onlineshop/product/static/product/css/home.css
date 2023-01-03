@@ -33,6 +33,7 @@
     box-shadow: none;
 
 }
+
 .btn:hover{
     background-color: rgba(126, 133, 157, 0.47);
 }
@@ -54,7 +55,7 @@
 /*}*/
 
 .card {
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.74);
     margin: 1.5px;
     position: relative;
     display: flex;

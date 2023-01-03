@@ -41,27 +41,27 @@
     </div>
 {% endblock %}
 
-{% block status %}
-    <div class="container">
-        <div class="row">
-            <div class="col-12" id="card-container">
-                <div class="card border-0 shadow rounded-3 my-5">
-                    <div class="card-body p-4 p-sm-5" id="card-body">
-                        <h5 class="card-title text-center mb-5 fw-light fs-5"><b>edit your profile</b></h5>
-                        <div class="form-group">
-                            <form method="POST">
-                                {% csrf_token %}
-                                {{ form.as_p }}
-                                <button class="btn btn-primary btn-login text-uppercase fw-bold" id="button"
-                                        type="submit">
-                                    Update
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-{% endblock %}
+<!--{% block status %}-->
+<!--    <div class="container">-->
+<!--        <div class="row">-->
+<!--            <div class="col-12" id="card-container">-->
+<!--                <div class="card border-0 shadow rounded-3 my-5">-->
+<!--                    <div class="card-body p-4 p-sm-5" id="card-body">-->
+<!--                        <h5 class="card-title text-center mb-5 fw-light fs-5"><b>edit your profile</b></h5>-->
+<!--                        <div class="form-group">-->
+<!--                            <form method="POST">-->
+<!--                                {% csrf_token %}-->
+<!--                                {{ form.as_p }}-->
+<!--                                <button class="btn btn-primary btn-login text-uppercase fw-bold" id="button"-->
+<!--                                        type="submit">-->
+<!--                                    Update-->
+<!--                                </button>-->
+<!--                            </form>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--{% endblock %}-->
 
