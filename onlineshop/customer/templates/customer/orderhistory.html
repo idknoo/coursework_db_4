@@ -39,8 +39,10 @@ product | Animal Shelter
                 <td>{{ product.age }}</td>
                 {% if product.is_given == True %}
                 <td>Accepted</td>
-                {% else %}
+                {% elif product.is_given == False%}
                 <td>Rejected</td>
+                {% else %}
+                <td>In work</td>
                 {% endif %}
             </tr>
             </tbody>
