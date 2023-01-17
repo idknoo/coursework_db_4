@@ -61,7 +61,7 @@
     display: flex;
     flex-direction: column;
     min-width: 0;
-    max-width: 300em;
+    max-width: 250px;
     word-wrap: break-word;
     background-clip: border-box;
     border: 1px solid rgba(0,0,0,.125);
@@ -96,3 +96,5 @@
     background-color: rgba(123, 131, 156, 0.47);
     border-color: #5d5c61;
 }
+
+
